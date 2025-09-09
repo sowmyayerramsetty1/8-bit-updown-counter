@@ -19,8 +19,8 @@ module tt_um_sowmya_updown_counter (
     // Internal synchronous reset signal (active high)
     wire reset = ~rst_n;
 
-    wire enable  = ui_in[0];
-    wire up_down = ui_in[1];
+    wire enable  = ena;
+    wire up_down = ui_in[0];
 
     reg [7:0] q;
 
