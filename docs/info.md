@@ -9,23 +9,33 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Suppose you have a ring counter with N flip-flops.
+This is an 8-bit synchronous up/down counter implemented in Verilog. The counter increments or decrements its value based on the up_down control input and counts only when the enable signal is high. It supports synchronous reset functionality.
 
-At any given time, exactly one flip-flop holds the value '1' (or 'high'), and the rest hold '0'.
+Features
 
-On each clock pulse, the '1' moves one position to the next flip-flop.
+8-bit counter value (q)
 
-After N clock pulses, the '1' returns to the original flip-flop, repeating the cycle.
+Synchronous reset (reset)
 
+Count enable (enable)
+
+Direction control (up_down)
+
+1 = count up
+
+0 = count down
+
+Increment or decrement on every rising edge of the clock (clk) when enabled
 ## How to test
 
-| Clock Cycle | Q3 | Q2 | Q1 | Q0 | Description               |
-| ----------- | -- | -- | -- | -- | ------------------------- |
-| 0 (Reset)   | 1  | 0  | 0  | 0  | Initial state             |
-| 1           | 0  | 1  | 0  | 0  | '1' shifted from Q3 to Q2 |
-| 2           | 0  | 0  | 1  | 0  | '1' shifted from Q2 to Q1 |
-| 3           | 0  | 0  | 0  | 1  | '1' shifted from Q1 to Q0 |
-| 4           | 1  | 0  | 0  | 0  | '1' shifted back to Q3    |
+| Port     | Direction | Width | Description                          |
+| -------- | --------- | ----- | ------------------------------------ |
+| clk      | input     | 1     | Clock signal (rising edge triggered) |
+| reset    | input     | 1     | Synchronous active-high reset signal |
+| enable   | input     | 1     | Enable counting when high            |
+| up\_down | input     | 1     | Count direction: 1 = up, 0 = down    |
+| q        | output    | 8     | 8-bit counter output value           |
+
 
 
 ## External hardware
