@@ -9,12 +9,25 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+Suppose you have a ring counter with N flip-flops.
+
+At any given time, exactly one flip-flop holds the value '1' (or 'high'), and the rest hold '0'.
+
+On each clock pulse, the '1' moves one position to the next flip-flop.
+
+After N clock pulses, the '1' returns to the original flip-flop, repeating the cycle.
 
 ## How to test
 
-Explain how to use your project
+| Clock Cycle | Q3 | Q2 | Q1 | Q0 | Description               |
+| ----------- | -- | -- | -- | -- | ------------------------- |
+| 0 (Reset)   | 1  | 0  | 0  | 0  | Initial state             |
+| 1           | 0  | 1  | 0  | 0  | '1' shifted from Q3 to Q2 |
+| 2           | 0  | 0  | 1  | 0  | '1' shifted from Q2 to Q1 |
+| 3           | 0  | 0  | 0  | 1  | '1' shifted from Q1 to Q0 |
+| 4           | 1  | 0  | 0  | 0  | '1' shifted back to Q3    |
+
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+LEDs
